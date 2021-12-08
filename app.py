@@ -15,7 +15,7 @@ UPLOAD_FOLDER_EGG = './i/image_egg' #ナスの写真用
 app = Flask(__name__, static_folder='./i')
 
 @app.route('/')
-def index():
+def judge():
     return render_template(
         'top.html',
          enter_images=os.listdir(UPLOAD_FOLDER_EGG)[::-1],
@@ -46,6 +46,10 @@ def uploads_file():
 @app.route('/result')
 def result():
     return render_template('result_good.html')
+
+@app.route('/result_bad')
+def result():
+    return render_template('result_bad.html')
 
 
 
