@@ -1,0 +1,131 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    height: 60px;
+    background-color: #8C6896;
+    color: beige;
+}
+
+.main{
+    height: 1200px;
+    background-color: #D3BCDB;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+
+    color: beige;
+    font-size: 50px;
+}
+
+.subtitle{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    color: beige;
+    font-size: 25px;
+}
+
+.nasukagami{
+    width: 355px;
+    height: 600px;
+    padding-bottom: 40px;
+}
+
+img{
+    width: 350px;
+    height: 600px;
+}
+
+.startbtn{
+
+    width: 300px;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    padding: 50px 0 50px;
+    background-color: beige;
+    border-radius: 120px;
+    text-decoration: none;
+}
+
+.howto-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #8C6896;
+
+    font-size: 30px;
+    color: beige;
+}
+
+.howto-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+
+    height: 500px;
+    background-color: #D3BCDB;
+}
+
+.howto-text{
+    background-color: beige;
+    font-size: 25px;
+    padding: 60px 40px 50px 60px;
+}
+
+.caution-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #8C6896;
+    height: 60px;
+    font-size: 30px;
+    color: beige;
+}
+
+.caution-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    height: 700px;
+    background-color: #D3BCDB;
+    padding-top: 15px;
+}
+
+.caution-text{
+    background-color: beige;
+    font-size: 25px;
+    padding: 60px 40px 60px 40px;
+    margin-bottom: 50px;
+    width: 600px;
+}
+
+span{
+    color: blueviolet;
+    font-size: 30px;
+}
+
+
+footer{
+    height: 20px;
+    background-color: #8C6896;
+    font-size: 20px;
+    color: beige;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

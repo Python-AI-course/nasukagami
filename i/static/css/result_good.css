@@ -1,0 +1,84 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    height: 60px;
+    background-color: #8C6896;
+    color: beige;
+}
+
+.main{
+    height: 1500px;
+    background-color: #D3BCDB;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.nasukagami{
+    width: 355px;
+    height: 600px;
+    padding-top: 30px;
+}
+
+img{
+    width: 350px;
+    height: 600px;
+}
+
+.ribbon{
+    position: relative;
+}
+
+.ribbon p{
+    position: absolute;
+    color: blueviolet;
+    
+    top: 37%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+    font-size: 30px;
+}
+
+.ribbon img{
+    width: 100%;
+    height: 170%;
+}
+
+.message{
+    text-align: center;
+    background-color: beige;
+    font-size: 25px;
+    padding: 60px 40px 50px 60px;
+    margin: 100px 0 40px 0;
+}
+
+.retrybtn{
+
+    width: 300px;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    padding: 50px 0 50px;
+    background-color: beige;
+    border-radius: 120px;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+footer{
+    height: 20px;
+    background-color: #8C6896;
+    font-size: 20px;
+    color: beige;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
