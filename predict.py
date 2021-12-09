@@ -17,5 +17,6 @@ def judge(images):
     temp_img_array=temp_img_array.reshape((1,224,224,3))
     #predict image
     img_pred=model.predict(temp_img_array)
-    print(label[np.argmax(img_pred)])
-judge(test)
+    nasujudge=label[np.argmax(img_pred)]
+    return nasujudge
+#judge(test)

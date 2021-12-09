@@ -9,13 +9,25 @@ from flask import (
      jsonify, 
      render_template, 
      send_from_directory)
+import predict
+
+import tensorflow as tf
+import keras
+import numpy as np
+from keras.preprocessing.image import load_img,img_to_array
+
+
+
+model = tf.keras.models.load_model("vgg16_nasu_fine.h5")
+label=['kusanasu','nasu']
 
 UPLOAD_FOLDER_EGG = './i/image_egg' #ナスの写真用
 
 app = Flask(__name__, static_folder='./i')
 
+
 @app.route('/')
-def judge():
+def index():
     return render_template(
         'top.html',
          enter_images=os.listdir(UPLOAD_FOLDER_EGG)[::-1],
@@ -24,6 +36,8 @@ def judge():
 @app.route('/uploadpage')
 def changepage():
     return render_template('up.html')
+
+
 
 @app.route('/upload', methods=['GET', 'POST'])
 def uploads_file():
@@ -41,15 +55,21 @@ def uploads_file():
                 #それぞれの画像に対してimage_enterまでのパスを定義作成してsaveメソッドを用いて保存する。
                 img_path = os.path.join(UPLOAD_FOLDER_EGG, uploads_file.filename)
                 uploads_file.save(img_path)
-        return redirect('/result')
+                temp_img=load_img(img_path,target_size=(224,224))
+                #Images normalization
+                temp_img_array=img_to_array(temp_img)
+                temp_img_array=temp_img_array.astype('float32')/255.0
+                temp_img_array=temp_img_array.reshape((1,224,224,3))
+                #predict image
+                img_pred=model.predict(temp_img_array)
+                nasujudge=label[np.argmax(img_pred)]
+                if nasujudge =='nasu':
+                    #print(nasujudge)
+                    return render_template("result_good.html")
+                else:
+                    return render_template("result_bad.html")  
 
-@app.route('/result')
-def result():
-    return render_template('result_good.html')
 
-@app.route('/result_bad')
-def result():
-    return render_template('result_bad.html')
 
 
 
