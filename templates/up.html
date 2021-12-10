@@ -4,23 +4,60 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="./i/static/css/up.css">
+    <link rel="stylesheet" type="text/css" href="../i/static/css/up.css">
     <title>nasukagami_up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+　　 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+　　 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+      $(function(){
+  $('#upload_files').change(function(e){
+    //ファイルオブジェクトを取得する
+    var file = e.target.files[0];
+    var reader = new FileReader();
+
+    //画像でない場合は処理終了
+    if(file.type.indexOf("image") < 0){
+      alert("画像ファイルを指定してください。");
+      return false;
+    }
+
+    //アップロードした画像を設定する
+    reader.onload = (function(file){
+      return function(e){
+        $("#img1").attr("src", e.target.result);
+        $("#img1").attr("title", file.name);
+      };
+    })(file);
+    reader.readAsDataURL(file);
+
+  });
+});
+    </script>
   </head>
 
   <boby>
     <header>
-      <p>ナスカガミ</p>
+      <div class="small">
+        <img src="../i/img/nasukagamirogo.png">
+      </div>
     </header>
   
     <div class="main">
+      
         <form action = "/upload" method="post" enctype="multipart/form-data">
-            <p><input type="file" id = "upload_files" name = "upload_files" multiple="multiple" class="form-control"></p>
-            <p><input type="submit" value="ok!" class="form-control btn btn-primary"></p>
+            <input type="file" id = "upload_files" name = "upload_files" multiple="multiple" accept="image/*" class="form-control">
+            <img src="" id="img1" style="width:70%;height:95%;" class="img_preview">
+            <input type="submit" value="ok!" class="form-control btn btn-primary">
         </form>
+        
     </div>
 
     <footer>
         <small>copyright@パクチー嫌い</small>
     </footer>
+
+
   </boby>
+</html>
