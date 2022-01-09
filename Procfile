@@ -1,1 +1,2 @@
-web: gunicorn app:app --log-file -
+pip install gunicorn
+web: gunicorn --bind 0.0.0.0:$PORT app:app
