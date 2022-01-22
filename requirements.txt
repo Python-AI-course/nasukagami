@@ -8,4 +8,4 @@ keras==1.2.2
 Keras-Preprocessing==1.1.2
 numpy==1.19.5
 requests==2.26.0
-tensorflow==1.6.0
+tensorflow==2.6.0
