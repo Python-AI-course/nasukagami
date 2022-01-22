@@ -4,11 +4,7 @@ from flask import (
      Flask, 
      request, 
      redirect, 
-     url_for, 
-     make_response, 
-     jsonify, 
-     render_template, 
-     send_from_directory)
+     render_template)
 import predict
 
 import tensorflow as tf
